@@ -5,6 +5,8 @@
 
 // Add your specific kbc declaration here.
 // For example: "pub mod sample_kbc;"
+#[cfg(feature = "eaa_kbc")]
+pub mod eaa_kbc;
 #[cfg(feature = "sample_kbc")]
 pub mod sample_kbc;
 
@@ -45,6 +47,14 @@ impl KbcModuleList {
                 Box::new(sample_kbc::SampleKbc::new(kbs_uri))
             });
             mod_list.insert("sample_kbc".to_string(), instantiate_func);
+        }
+
+        #[cfg(feature = "eaa_kbc")]
+        {
+            let instantiate_func: KbcInstantiateFunc = Box::new(|kbs_uri: String| -> KbcInstance {
+                Box::new(eaa_kbc::EAAKbc::new(kbs_uri))
+            });
+            mod_list.insert("eaa_kbc".to_string(), instantiate_func);
         }
 
         KbcModuleList { mod_list: mod_list }
