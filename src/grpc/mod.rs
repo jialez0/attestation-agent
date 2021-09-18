@@ -131,9 +131,16 @@ fn parse_input(input_byte: Vec<u8>) -> Result<InputPayload> {
      *     }
      * }
      */
-    let parameters_list = dc.parameters.get("attestation-agent").ok_or(anyhow!(
-        "Invalid parameters: the request is not sent to attention agent!"
-    ))?;
+    let parameters_list = match dc.parameters.get("eaa") {
+        Some(p) => p,
+        None => {
+            return Ok(InputPayload {
+                kbc_name: "eaa_kbc".to_string(),
+                kbs_uri: "127.0.0.1:1122".to_string(),
+                annotation: jsonstring_annotation.to_string(),
+            });
+        }
+    };
     let kbc_kbs_pair_byte = base64::decode(parameters_list[0].clone())?;
     let kbc_kbs_pair = std::str::from_utf8(&kbc_kbs_pair_byte)?;
     if let Some(index) = kbc_kbs_pair.find("::") {
