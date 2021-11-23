@@ -3,7 +3,6 @@ on: [push, pull_request, create]
 
 jobs:
   basic_ci:
-    if: github.event_name == 'pull_request'
     name: Check
     runs-on: ubuntu-latest
     strategy:
