@@ -180,7 +180,7 @@ impl EAAKbc {
             })?;
 
         let recv_string: String = String::from_utf8(buffer[..len_recv].to_vec())?;
-        debug!("Recieved: {}", recv_string);
+        debug!("Recieved: {}! hahahaha", recv_string);
 
         Ok(recv_string)
     }
