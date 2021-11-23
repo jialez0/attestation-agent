@@ -109,7 +109,7 @@ impl EAAKbc {
         match response.status.as_str() {
             "OK" => Ok(response.version),
             "Fail" => return Err(anyhow!("The VersionResponse status is 'Fail'!")),
-            _ => return Err(anyhow!("Can't understand the VersionResponse status!")),
+            _ => return Err(anyhow!("Can't understand the VersionResponse status!hahahahahahaha")),
         }
     }
 
