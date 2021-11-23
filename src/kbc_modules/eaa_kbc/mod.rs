@@ -109,7 +109,7 @@ impl EAAKbc {
         match response.status.as_str() {
             "OK" => Ok(response.version),
             "Fail" => return Err(anyhow!("The VersionResponse status is 'Fail'!")),
-            _ => return Err(anyhow!("Can't understand the VersionResponse status!")),
+            _ => return Err(anyhow!("Can't understand the VersionResponse status!hahahahahahaha")),
         }
     }
 
@@ -180,7 +180,7 @@ impl EAAKbc {
             })?;
 
         let recv_string: String = String::from_utf8(buffer[..len_recv].to_vec())?;
-        debug!("Recieved: {}", recv_string);
+        debug!("Recieved: {}! hahahaha", recv_string);
 
         Ok(recv_string)
     }
