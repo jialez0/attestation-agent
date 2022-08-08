@@ -289,3 +289,13 @@ impl EAAKbc {
         Ok(recv_string)
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    #[test]
+    fn test_eaa_attestation() {
+        let mut test_kbc = EAAKbc::new("30.97.46.37:30000".to_string());
+        let _ = test_kbc.establish_new_kbs_connection().unwrap();
+    }
+}
