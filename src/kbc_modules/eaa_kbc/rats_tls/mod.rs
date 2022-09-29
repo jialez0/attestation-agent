@@ -78,6 +78,9 @@ impl RatsTls {
         };
         conf.flags |= RATS_TLS_CONF_FLAGS_MUTUAL;
 
+        let attester = "nullattester".to_string();
+        conf.attester_type[..attester.len()].copy_from_slice(attester.as_bytes());
+
         let mut handle: rats_tls_handle = unsafe { std::mem::zeroed() };
         let mut tls: *mut rats_tls_handle = &mut handle;
         let err = unsafe { rats_tls_init(&conf, &mut tls) };
