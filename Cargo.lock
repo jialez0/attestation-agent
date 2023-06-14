@@ -3436,8 +3436,8 @@ checksum = "fd1ba337640d60c3e96bc6f0638a939b9c9a7f2c316a1598c279828b3d1dc8c5"
 
 [[package]]
 name = "tdx-attest-rs"
-version = "0.1.0"
-source = "git+https://github.com/intel/SGXDataCenterAttestationPrimitives?rev=cc582e8be0c9010295c66fb58c59f74744017600#cc582e8be0c9010295c66fb58c59f74744017600"
+version = "0.1.2"
+source = "git+https://github.com/intel/SGXDataCenterAttestationPrimitives?tag=DCAP_1.16#71557c7d1d869b6bd6f95566c051cbd098549509"
 dependencies = [
  "tdx-attest-sys",
 ]
@@ -3445,7 +3445,7 @@ dependencies = [
 [[package]]
 name = "tdx-attest-sys"
 version = "0.1.0"
-source = "git+https://github.com/intel/SGXDataCenterAttestationPrimitives?rev=cc582e8be0c9010295c66fb58c59f74744017600#cc582e8be0c9010295c66fb58c59f74744017600"
+source = "git+https://github.com/intel/SGXDataCenterAttestationPrimitives?tag=DCAP_1.16#71557c7d1d869b6bd6f95566c051cbd098549509"
 dependencies = [
  "bindgen",
 ]
